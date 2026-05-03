@@ -1,1 +1,32 @@
-ui_context.txt
+Utilise le fichier ui_context.txt pour comprendre l’interface.
+Propose des améliorations UX et génère le HTML/CSS correspondant.
+
+CONTEXT GRAPHIQUE - WEBAPP
+
+1. OBJECTIF UI
+Créer une interface simple type chat IA (style ChatGPT).
+
+2. ÉCRAN PRINCIPAL
+- Barre de titre en haut
+- Zone centrale de conversation
+- Champ de saisie en bas
+- Bouton "Envoyer"
+
+3. COMPORTEMENT
+- L'utilisateur tape une question
+- La réponse apparaît dans la zone centrale
+- Scroll automatique vers le bas
+
+4. STYLE VISUEL
+- Fond clair ou sombre (à définir)
+- Messages utilisateur alignés à droite
+- Réponses IA alignées à gauche
+- Bulles arrondies
+
+5. FLUX UTILISATEUR
+Accueil → saisie question → envoi → réponse IA → affichage chat
+
+6. CONTRAINTES
+- Interface simple (pas de surcharge)
+- Mobile-friendly
+- Réactivité rapide

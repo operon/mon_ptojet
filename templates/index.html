@@ -18,6 +18,10 @@
         .user-message { align-self: flex-end; background: var(--user-msg); border-bottom-right-radius: 2px; color: #1565c0; }
         .ai-message { align-self: flex-start; background: var(--ai-msg); border-bottom-left-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
         
+        /* Style pour le code dans les messages */
+        pre { background: #272822; color: #f8f8f2; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: 'Consolas', monospace; }
+        
         /* Zone de saisie */
         .input-area { background: white; padding: 20px; border-top: 1px solid #ddd; display: flex; gap: 10px; }
         textarea { flex: 1; border: 1px solid #ccc; border-radius: 8px; padding: 10px; resize: none; height: 40px; font-family: inherit; }
@@ -42,7 +46,7 @@
         {% endif %}
 
         {% if response %}
-            <div class="message ai-message">{{ response }}</div>
+            <div class="message ai-message" id="last-response">{{ response }}</div>
         {% endif %}
 
         {% if error %}
@@ -53,15 +57,30 @@
         <div id="anchor"></div>
     </div>
 
-    <form class="input-area" action="/ask" method="post">
-        <textarea name="question" placeholder="Posez votre question..." required></textarea>
+    <form class="input-area" action="/ask" method="post" id="chat-form">
+        <textarea name="question" id="question-input" placeholder="Posez votre question (Entrée pour envoyer)..." required></textarea>
         <button type="submit">Envoyer</button>
     </form>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        // Rendu Markdown pour la réponse de l'IA
+        const aiMsg = document.getElementById('last-response');
+        if (aiMsg) {
+            aiMsg.innerHTML = marked.parse(aiMsg.innerText);
+        }
+
         // Scroll automatique vers le bas
         const container = document.getElementById('chat-container');
         container.scrollTop = container.scrollHeight;
+
+        // Envoyer avec Entrée (sans Shift)
+        document.getElementById('question-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                document.getElementById('chat-form').submit();
+            }
+        });
     </script>
 </body>
 </html>
