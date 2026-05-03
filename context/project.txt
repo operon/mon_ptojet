@@ -1,0 +1,2 @@
+Projet : Assistant IA personnel avec Gemini.
+Objectif : aider au développement Python et automatisation.

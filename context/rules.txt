@@ -1,0 +1,4 @@
+Règles :
+- Toujours donner du code complet
+- Expliquer simplement
+- Ne pas supposer des librairies non installées
