@@ -1,6 +1,19 @@
-# Ignorer les variables d'environnement
+# --- Sécurité ---
 .env
+*.log
+*.pot
+*.pyc
 
-# Ignorer les dossiers virtuels Python
+# --- Environnement Virtuel ---
 venv/
+.venv/
+env/
+
+# --- Python / Système ---
 __pycache__/
+.pytest_cache/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
