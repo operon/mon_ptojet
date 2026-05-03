@@ -1,3 +1,6 @@
-venv/
+# Ignorer les variables d'environnement
 .env
+
+# Ignorer les dossiers virtuels Python
+venv/
 __pycache__/
